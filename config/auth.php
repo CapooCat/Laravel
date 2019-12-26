@@ -67,7 +67,7 @@ return [
     'providers' => [
         'admins' => [
             'driver' => 'eloquent',
-            'model' => App\NguoiChoi::class,
+            'model' => App\QuanTriVien::class,
         ],
 
         'users' => [

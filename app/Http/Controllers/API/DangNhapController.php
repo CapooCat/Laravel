@@ -19,8 +19,7 @@ class DangNhapController extends Controller
         {
             $res = [
                 'success'   => false,
-                'msg'       => 'Đăng nhập thất bại, mời thử lại',
-                'tk'        =>$credentials
+                'msg'       => 'Đăng nhập thất bại, mời thử lại'
             ];
             return \response()->json($res);
         }
@@ -29,6 +28,7 @@ class DangNhapController extends Controller
             'msg'       => 'Đăng nhập thành công',
             'token'     => $token,
             'type'      => 'Bearer', // you can ommit this
+            'tk'        =>$credentials,
             'expires'   => auth('api')->factory()->getTTL() * 60 * 24 * 7
         ];
         return \response()->json($res);
