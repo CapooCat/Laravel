@@ -11,7 +11,7 @@ class CauHoiController extends Controller
     public function loadCauHoi(Request $request)
     {
     	$linhVucID=$request->linh_vuc_id;
-    	$dsCauHoi=CauHoi::where('linh_vuc_id','=',$linhVucID)->get();
+    	$dsCauHoi=CauHoi::where('linh_vuc_id','=',$linhVucID)->get()->random(1);
     	if($dsCauHoi!="")
     	{
     	 $res = [
