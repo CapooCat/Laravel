@@ -18,8 +18,11 @@ Route::get('tap-tho/{id}', 'API\BaiThoController@layBaiTho');
 Route::get('linh-vuc','API\LinhVucController@layDanhSach');
 Route::post('register','API\Auth\RegisterController@register');
 Route::post('dang-nhap','API\DangNhapController@dangNhap');
+
 Route::post('credit','API\GoiCreditController@layDanhSach');
 Route::post('load-cau-hoi','API\CauHoiController@loadCauHoi');
+
+Route::get('credit','API\GoiCreditController@layDanhSach');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
