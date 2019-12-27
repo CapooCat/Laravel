@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\NguoiChoi;
-
+use Auth;
 class DangNhapController extends Controller
 {
     public function dangNhap(Request $request)
@@ -29,6 +29,7 @@ class DangNhapController extends Controller
             'token'     => $token,
             'type'      => 'Bearer', // you can ommit this
             'tk'        =>$credentials,
+            'credit'        => auth('api')->user()->credit,
             'expires'   => auth('api')->factory()->getTTL() * 60 * 24 * 7
         ];
         return \response()->json($res);
@@ -36,6 +37,7 @@ class DangNhapController extends Controller
 
     public function layThongTin()
     {
-        return auth('api')->user();
+
+        return \response()->json(auth('api')->user());
     }
 }

@@ -18,6 +18,7 @@ Route::get('tap-tho/{id}', 'API\BaiThoController@layBaiTho');
 Route::get('linh-vuc','API\LinhVucController@layDanhSach');
 Route::post('register','API\Auth\RegisterController@register');
 Route::post('dang-nhap','API\DangNhapController@dangNhap');
+Route::get('dang-nhap/lay-thong-tin','API\DangNhapController@layThongTin');
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
