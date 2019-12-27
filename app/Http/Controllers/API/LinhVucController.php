@@ -17,3 +17,4 @@ class LinhVucController extends Controller
     	return response()->json($result);
     }
 }
+ 

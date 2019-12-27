@@ -68,6 +68,7 @@ Route::prefix('trang-chu')->group(function()
 
         Route::get('chi-tiet-luot-choi','ChiTietLuotChoiController@index')->name('chi-tiet-luot-choi.index');
 
+
         Route::prefix('thung-rac')->group(function(){
             Route::get('','ThungRacController@thungRac')->name('thung-rac');
             Route::get('lv','ThungRacController@linhVuc')->name('thung-rac-lv');
@@ -87,6 +88,7 @@ Route::prefix('trang-chu')->group(function()
         });
         Route::prefix('quan-tri-vien')->group(function(){
             Route::get('','QuanTriVienController@index')->name('quan-tri-vien.index');
+            Route::get('profile/{ten_dang_nhap}','QuanTriVienController@layThongTin')->name('quan-tri-vien.profile');
 
         });
 
