@@ -43,4 +43,27 @@ class NguoiChoiController extends Controller
             return \response()->json($res);
     	}
     }
+    public function napCredit(Request $request)
+    {
+        $user=NguoiChoi::find($request->nguoi_choi_id);
+        $goiCredit=GoiCredit::find($request->goi_credit_id);
+        if($user!="" && $goiCredit!="")
+        {
+            $user->credit=$user->credit+$goiCredit->credit;
+            $user->save();
+            $res = [
+                'success'   => true,
+                'msg'       => 'Nạp credit thành công'
+            ];
+            return \response()->json($res);
+        }
+        else
+        {
+            $res = [
+                'success'   => false,
+                'msg'       => 'Nạp credit thất bại'
+            ];
+            return \response()->json($res);
+        }
+    }
 }
