@@ -20,6 +20,7 @@ Route::post('credit','API\GoiCreditController@layDanhSach');
 Route::post('load-cau-hoi','API\CauHoiController@loadCauHoi');
 Route::get('credit','API\GoiCreditController@layDanhSach');
 Route::post('lay-thong-tin','API\DangNhapController@layThongTin');
+Route::post('lay-diem-cao-nhat','API\NguoiChoiController@ssDiemCaoNhat');
 Route::post('dang-nhap','API\DangNhapController@dangNhap');
 Route::post('dang-ky','API\DangKyController@dangKy');
 Route::post('dang-xuat','API\DangNhapController@dangXuat');

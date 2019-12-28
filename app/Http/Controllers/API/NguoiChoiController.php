@@ -19,4 +19,28 @@ class NguoiChoiController extends Controller
     		'data' => $listNguoiChoi
     	]);
     }
+    //So sanh diem cao nhat
+    public function ssDiemCaoNhat(Request $request)
+    {
+    	$user=NguoiChoi::find($request->nguoi_choi_id);
+    	$diemChoiDuoc=$request->diem;
+    	if($user->diem_cao_nhat<$diemChoiDuoc)
+    	{
+    		$user->diem_cao_nhat=$diemChoiDuoc;
+    		$user->save();
+    		$res = [
+                'success'   => true,
+                'msg'       => 'Cập nhật điểm thành công'
+            ];
+            return \response()->json($res);
+    	}
+    	else
+    	{
+    		$res = [
+                'success'   => false,
+                'msg'       => 'Cập nhật điểm thất bại'
+            ];
+            return \response()->json($res);
+    	}
+    }
 }
