@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\NguoiChoi;
-
+use App\GoiCredit;
 class NguoiChoiController extends Controller
 {
     public function layDanhSach(Request $request) {
