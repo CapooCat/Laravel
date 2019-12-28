@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\NguoiChoi;
 use App\GoiCredit;
+use Illuminate\Support\Facades\Hash;
 class NguoiChoiController extends Controller
 {
     public function layDanhSach(Request $request) {
@@ -65,5 +66,63 @@ class NguoiChoiController extends Controller
             ];
             return \response()->json($res);
         }
+    }
+    public function truCredit(Request $request)
+    {
+        $soCreditTru=$request->credit_tru;
+        $user_id=$request->nguoi_choi_id;
+
+        $user=NguoiChoi::find($user_id);
+
+        if($user!="")
+        {
+            $user->credit=$user->credit-$soCreditTru;
+            $user->save();
+            $res = [
+                'success'   => true,
+                'msg'       => 'Trừ credit thành công'
+            ];
+            return \response()->json($res);
+        }
+        else
+        {
+            $res = [
+                'success'   => false,
+                'msg'       => 'Trừ credit thất bại'
+            ];
+            return \response()->json($res);
+        }
+    }
+    public function suaThongTin(Request $request)
+    {
+        //post 4 cái:
+        $id=$request->nguoi_choi_id;
+        $tenDangNhap=$request->ten_dang_nhap;
+        $email=$request->email;
+        $matKhau=Hash::make($request->mat_khau);
+
+        $user=NguoiChoi::find($id);
+        if($user!="")
+        {
+            $user->ten_dang_nhap=$tenDangNhap;
+            $user->email=$email;
+            $user->mat_khau=$matKhau;
+            $user->save();
+
+            $res = [
+                'success'   => true,
+                'msg'       => 'Sửa thông tin thành công'
+            ];
+            return \response()->json($res);
+        }
+        else
+        {
+            $res = [
+                'success'   => false,
+                'msg'       => 'Sửa thông tin thất bại'
+            ];
+            return \response()->json($res);
+        }
+
     }
 }
