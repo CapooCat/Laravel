@@ -91,7 +91,8 @@ class NguoiChoiController extends Controller
                 $res = [
                 'success'   => false,
                 'msg'       => 'Bạn không đủ số dư trong tài khoản'
-            ];
+                ];
+                 return \response()->json($res);
             }
             else
             {
@@ -101,6 +102,7 @@ class NguoiChoiController extends Controller
                     'success'   => true,
                     'msg'       => 'Trừ credit thành công'
                 ];
+                return \response()->json($res);
             }
         }
         else
