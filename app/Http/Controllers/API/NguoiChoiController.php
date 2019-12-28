@@ -81,7 +81,7 @@ class NguoiChoiController extends Controller
                 $user->credit=0;
                 $user->save();
                 $res = [
-                    'success'   => true,
+                    'success'   => false,
                     'msg'       => 'Bạn không đủ số dư trong tài khoản'
                 ];
                 return \response()->json($res);
