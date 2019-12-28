@@ -30,7 +30,9 @@ class DangNhapController extends Controller
             'token'     => $token,
             'type'      => 'Bearer', // you can ommit this
             'tk'        =>$credentials,
-            'credit'        => auth('api')->user()->credit,
+            'id'        =>auth('api')->user()->id,
+            'ten_dang_nhap'=>auth('api')->user()->ten_dang_nhap,
+            'credit'    => auth('api')->user()->credit,
             'expires'   => auth('api')->factory()->getTTL()
         ];
         return \response()->json($res);
