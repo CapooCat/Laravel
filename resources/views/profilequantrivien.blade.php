@@ -28,7 +28,7 @@
                                 @if(session('thongbaosuccess'))
                                 <div class="alert alert-success">{{session('thongbaosuccess')}}</div>
                                 @endif
-                                <form method="post" action="">
+                                <form method="post" action="" >
                                     {!! csrf_field() !!}
                                     <div class="form-group">
                                         
@@ -48,6 +48,11 @@
                                         <input type="text" class="form-control" name="phuong_an_b" value="">
                                     </div>
                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Sửa thông tin</button>
+                                </form>
+                                <form method="post" action="" enctype="multipart/form-data">
+                                    {!! csrf_field() !!}
+                                    <input type="file" name="ten_input">
+                                    <button type="submit" class="btn btn-info btn-rounded waves-effect waves-light">Upload hình ảnh</button>
                                 </form>
 
                             </div> <!-- end card-body-->

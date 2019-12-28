@@ -76,13 +76,32 @@ class NguoiChoiController extends Controller
 
         if($user!="")
         {
-            $user->credit=$user->credit-$soCreditTru;
-            $user->save();
-            $res = [
-                'success'   => true,
-                'msg'       => 'Trừ credit thành công'
+            if($user->credit<$soCreditTru)
+            {
+                $user->credit=0;
+                $user->save();
+                $res = [
+                    'success'   => true,
+                    'msg'       => 'Trừ credit thành công'
+                ];
+                return \response()->json($res);
+            }
+            else if($user->credit==0)
+            {
+                $res = [
+                'success'   => false,
+                'msg'       => 'Bạn không đủ số dư trong tài khoản'
             ];
-            return \response()->json($res);
+            }
+            else
+            {
+                $user->credit=$user->credit-$soCreditTru;
+                $user->save();
+                $res = [
+                    'success'   => true,
+                    'msg'       => 'Trừ credit thành công'
+                ];
+            }
         }
         else
         {
