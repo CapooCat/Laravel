@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\NguoiChoi;
 use Auth;
+use JWTAuth;
 class DangNhapController extends Controller
 {
     public function dangNhap(Request $request)
@@ -30,14 +31,51 @@ class DangNhapController extends Controller
             'type'      => 'Bearer', // you can ommit this
             'tk'        =>$credentials,
             'credit'        => auth('api')->user()->credit,
-            'expires'   => auth('api')->factory()->getTTL() * 60 * 24 * 7
+            'expires'   => auth('api')->factory()->getTTL()
         ];
         return \response()->json($res);
     }
 
-    public function layThongTin()
+    public function layThongTin(Request $request)
     {
-
-        return \response()->json(auth('api')->user());
+        //Khi lấy thông tin người chơi thì post token của người chơi hiện tại
+      $user = auth('api')->user($request->token);
+      if($user!="")
+      {
+        $res = [
+                'success'   => true,
+                'msg'       => 'Lấy thông tin thành công',
+                'user'      =>$user
+            ];
+            return \response()->json($res);
+      }
+      else
+      {
+        $res = [
+                'success'   => false,
+                'msg'       => 'Lấy thông tin thất bại'
+            ];
+            return \response()->json($res);
+      }
+    }
+    public function dangXuat(Request $request)
+    {
+        if(auth('api')->check($request->token))
+        {
+            auth('api')->logout($request->token);
+            $res = [
+                'success'   => true,
+                'msg'       => 'Đăng xuất thành công'
+            ];
+            return \response()->json($res);
+        }
+        else
+        {
+            $res = [
+                'success'   => false,
+                'msg'       => 'Đăng xuất thất bại'
+            ];
+            return \response()->json($res);
+        }
     }
 }

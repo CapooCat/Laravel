@@ -13,15 +13,16 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('tap-tho', 'API\BaiThoController@layDanhSach');
-Route::get('tap-tho/{id}', 'API\BaiThoController@layBaiTho');
+
 Route::get('linh-vuc','API\LinhVucController@layDanhSach');
 Route::post('register','API\Auth\RegisterController@register');
-Route::post('dang-nhap','API\DangNhapController@dangNhap');
-Route::post('dang-ky','API\DangKyController@dangKy');
 Route::post('credit','API\GoiCreditController@layDanhSach');
 Route::post('load-cau-hoi','API\CauHoiController@loadCauHoi');
 Route::get('credit','API\GoiCreditController@layDanhSach');
+Route::post('lay-thong-tin','API\DangNhapController@layThongTin');
+Route::post('dang-nhap','API\DangNhapController@dangNhap');
+Route::post('dang-ky','API\DangKyController@dangKy');
+Route::post('dang-xuat','API\DangNhapController@dangXuat');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
