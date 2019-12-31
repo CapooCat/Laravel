@@ -29,7 +29,7 @@ class SendMailController extends Controller
     		 $user->mat_khau=Str::random(6);
     		 $user->save();
     		 //Chọn gmail muốn gửi
-    		 Mail::to("tranthaitat99@gmail.com")->send(new MailQuenMatKhau($user));
+    		 Mail::to($user->email)->send(new MailQuenMatKhau($user));
 
     		 $user->mat_khau=Hash::make($user->mat_khau);
     		 $user->save();

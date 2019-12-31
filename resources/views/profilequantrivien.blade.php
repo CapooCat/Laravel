@@ -14,12 +14,24 @@
                                     <li class="breadcrumb-item active">Admin</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Admin</h4>
                         </div>
+                        <h4 class="page-title">Admin's Profile</h4>
                     </div>
-                </div>     
+                </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <img src="{{asset('/uploads/avatars/huyduc.jpg')}}" style="width: 150px;height: 150px;float: left;border-radius: 50%;margin-right: 25px">
+                                    <form method="post" action="" enctype="multipart/form-data">
+                                        {!! csrf_field() !!}
+                                        <input type="file" name="avatar">
+                                        <button type="submit" class="btn btn-info btn-rounded waves-effect waves-light">Upload hình ảnh</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+    
                 <!-- end page title --> 
-
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
@@ -28,6 +40,7 @@
                                 @if(session('thongbaosuccess'))
                                 <div class="alert alert-success">{{session('thongbaosuccess')}}</div>
                                 @endif
+
                                 <form method="post" action="" >
                                     {!! csrf_field() !!}
                                     <div class="form-group">
@@ -49,12 +62,6 @@
                                     </div>
                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Sửa thông tin</button>
                                 </form>
-                                <form method="post" action="" enctype="multipart/form-data">
-                                    {!! csrf_field() !!}
-                                    <input type="file" name="ten_input">
-                                    <button type="submit" class="btn btn-info btn-rounded waves-effect waves-light">Upload hình ảnh</button>
-                                </form>
-
                             </div> <!-- end card-body-->
                         </div> <!-- end card-->
                     </div>
