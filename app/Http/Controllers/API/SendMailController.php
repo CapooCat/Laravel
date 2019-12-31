@@ -16,7 +16,7 @@ class SendMailController extends Controller
     	//Nhận post tên đăng nhập
     	$user_id=NguoiChoi::where('ten_dang_nhap','=',$request->ten_dang_nhap)->first();
     	$user=NguoiChoi::find($user_id->id);
-    	if($user=="")
+    	if($user=="" && $user_id=="")
     	{
     		$res = [
                 'success'   => false,
