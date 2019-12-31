@@ -32,6 +32,7 @@ class DangNhapController extends Controller
             'tk'        =>$credentials,
             'id'        =>auth('api')->user()->id,
             'ten_dang_nhap'=>auth('api')->user()->ten_dang_nhap,
+            'email'     =>auth('api')->user()->email,
             'credit'    => auth('api')->user()->credit,
             'expires'   => auth('api')->factory()->getTTL()
         ];
