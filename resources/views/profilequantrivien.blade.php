@@ -15,7 +15,7 @@
                                 </ol>
                             </div>
                         </div>
-                        <h4 class="page-title">Admin's</h4>
+                        <h4 class="page-title">Admin's Profile</h4>
                     </div>
                 </div>
                         <div class="container">
