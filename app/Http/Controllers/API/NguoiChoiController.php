@@ -109,7 +109,7 @@ class NguoiChoiController extends Controller
         {
             $res = [
                 'success'   => false,
-                'msg'       => 'Trừ credit thất bại'
+                'msg'       => 'thất bại'
             ];
             return \response()->json($res);
         }
