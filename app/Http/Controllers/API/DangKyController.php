@@ -32,7 +32,7 @@ class DangKyController extends Controller
     		{
     			$res = [
                 'success'   => false,
-                'msg'       => 'Đăng ký thất bại, nhập lại mật khẩu không đúng'
+                'msg'       => 'Đăng ký thất bại, mật khẩu nhập lại không trùng'
             ];
              return \response()->json($res);
     		}
