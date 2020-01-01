@@ -100,7 +100,7 @@ class NguoiChoiController extends Controller
                 $user->save();
                 $res = [
                     'success'   => true,
-                    'msg'       => 'Trừ credit thành công'
+                    'msg'       => 'Thành công'
                 ];
                 return \response()->json($res);
             }
