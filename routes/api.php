@@ -27,7 +27,7 @@ Route::post('tru-credit','API\NguoiChoiController@truCredit');
 Route::post('dang-nhap','API\DangNhapController@dangNhap');
 Route::post('dang-ky','API\DangKyController@dangKy');
 Route::post('dang-xuat','API\DangNhapController@dangXuat');
-//send mail
+// api send mail
 Route::post('mail/send','API\SendMailController@sendMail');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
