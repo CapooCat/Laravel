@@ -21,8 +21,8 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-10 col-md-offset-1">
-                                    <img src="{{asset('/uploads/avatars/huyduc.jpg')}}" style="width: 150px;height: 150px;float: left;border-radius: 50%;margin-right: 25px">
-                                    <form method="post" action="" enctype="multipart/form-data">
+                                    <img src="/uploads/avatars/{{Auth::user()->hinh_dai_dien}}" style="width: 150px;height: 150px;float: left;border-radius: 50%;margin-right: 25px">
+                                    <form method="POST" action="{{route('quan-tri-vien.update_avatar')}}" enctype="multipart/form-data">
                                         {!! csrf_field() !!}
                                         <input type="file" name="avatar">
                                         <button type="submit" class="btn btn-info btn-rounded waves-effect waves-light">Upload hình ảnh</button>

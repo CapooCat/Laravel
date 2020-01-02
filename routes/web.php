@@ -89,6 +89,7 @@ Route::prefix('trang-chu')->group(function()
         Route::prefix('quan-tri-vien')->group(function(){
             Route::get('','QuanTriVienController@index')->name('quan-tri-vien.index');
             Route::get('profile/{ten_dang_nhap}','QuanTriVienController@layThongTin')->name('quan-tri-vien.profile');
+            Route::post('profile','LoadAvatarController@update_avatar')->name('quan-tri-vien.update_avatar');
 
         });
 

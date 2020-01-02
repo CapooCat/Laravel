@@ -172,7 +172,7 @@
                         <li class="dropdown notification-list">
                             
                             <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect"  href="{{route('quan-tri-vien.profile',Auth::user()->ten_dang_nhap)}}"  role="button">
-                        <img src="{{ asset('assets/images/users/user-1.jpg')}}" alt="user-img" title="Mat Helme" class="rounded-circle img-fluid">
+                        <img src="/uploads/avatars/{{Auth::user()->hinh_dai_dien}}" alt="user-img" title="Mat Helme" class="rounded-circle img-fluid">
                     
                                 <span class="pro-user-name ml-1">
                                    {{Auth::user()->ho_ten}} 
