@@ -160,8 +160,8 @@
                 e.preventDefault();
                 var id=$(this).attr('id');
                  Swal.fire({
-                            title:"Are you sure?",
-                            text:"You won't be able to revert this!",
+                            title:"Bạn có chắc ?",
+                            text:"Những câu hỏi bị xóa sẽ đưa vào thùng rác!",
                             type:"warning",
 
                             showCancelButton:!0,
@@ -177,7 +177,7 @@
                                     success:function(data)
                                     {
 
-                                        Swal.fire("Deleted!","Your file has been deleted.","success");
+                                        Swal.fire("Đã xóa!","Xóa câu hỏi thành công!","success");
                                        location.reload();
                                         
                                     }

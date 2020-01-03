@@ -23,28 +23,22 @@ class NguoiChoiController extends Controller
     }
     public function update(Request $request)
     {
-        try {
         $NguoiChoi =NguoiChoi::findOrFail($request->id);
         $NguoiChoi->ten_dang_nhap= $request->ten_dang_nhap;
-        $NguoiChoi->mat_khau=$request->mat_khau;
         $NguoiChoi->email=$request->email;
         $NguoiChoi->diem_cao_nhat=$request->diem_cao_nhat;
         $NguoiChoi->credit=$request->credit;
-       $kq= $NguoiChoi->save();
+        $kq= $NguoiChoi->save();
 
             if ($kq) {
                 return redirect()
                         ->route('trang-chu.ql-nguoi-choi')
                         ->with('msg', 'Cập nhật câu hỏi thành công');
+                    }
+            else
+            {
+                return back()->with('thongbaoloi','Có lỗi xảy ra,Cập nhật người chơi thất bại');
             }
-            return back()
-                    ->withErrors('Cập nhật câu hỏi thất bại')
-                    ->withInput();
-        } catch (Exception $e) {
-            return back()
-                    ->withErrors('Có lỗi xảy ra, mời thử lại sau')
-                    ->withInput();
-        }
     }
 
     public function themNguoiChoi()

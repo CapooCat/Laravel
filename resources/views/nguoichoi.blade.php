@@ -29,13 +29,18 @@
                                 <p class="text-muted font-13 mb-4">
                                     
                                 </p>
+                                 @if(session('msg'))
+                                <div class="alert alert-success">{{session('msg')}}</div>
+                                @endif
+                                @if(session('thongbaoloi'))
+                                <div class="alert alert-danger">{{session('thongbaoloi')}}</div>
+                                @endif
                                 <div class="table-responsive" id="table-nguoichoi" >
                                 <table id="basic-datatable" class="table dt-responsive nowrap">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
                                             <th>Tên đăng nhập</th>
-                                            <th>Mật khẩu</th>
                                             <th>Email</th>
                                             <th>Điểm cao nhất</th>
                                             <th>Credit</th>
@@ -50,7 +55,6 @@
                                         <tr>
                                             <td>{{$nguoiChoi->id}}</td>
                                             <td>{{$nguoiChoi->ten_dang_nhap}}</td>
-                                            <td>{{$nguoiChoi->mat_khau}}</td>
                                             <td>{{$nguoiChoi->email}}</td>
                                             <td>{{$nguoiChoi->diem_cao_nhat}}</td>
                                             <td>{{$nguoiChoi->credit}}</td>
@@ -138,8 +142,8 @@
                 e.preventDefault();
                 var id=$(this).attr('id');
                  Swal.fire({
-                            title:"Are you sure?",
-                            text:"You won't be able to revert this!",
+                            title:"Bạn có chắc ?",
+                            text:"Những người chơi bị xóa sẽ đưa vào thùng rác!",
                             type:"warning",
 
                             showCancelButton:!0,
@@ -155,7 +159,7 @@
                                     success:function(data)
                                     {
 
-                                        Swal.fire("Deleted!","Your file has been deleted.","success");
+                                        Swal.fire("Đã xóa!","Xóa người chơi thành công!","success");
                                         $('#div-table1').load("{{route('trang-chu.ql-nguoi-choi')}} #table-nguoichoi");
                                         
                                     }
